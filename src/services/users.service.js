@@ -1,13 +1,14 @@
 const { SELECT, INSERT, UPDATE } = require("sequelize");
 const { sequelize } = require("../connection");
 const { UserModel } = require("../model/user.model");
+const jwt = require('jsonwebtoken');
 
 const listar = async function (textoBuscar) {
   console.log("listar usuarios service");
 
   try {
     const users = await sequelize.query(
-      `SELECT * FROM users 
+      `SELECT id, name, last_name, email, avatar, deleted FROM users 
         WHERE 1=1
           AND deleted is FALSE
           AND name LIKE '%${textoBuscar}%'
@@ -32,7 +33,7 @@ const consultarPorCodigo = async function (id) {
 
   try {
 
-    const UserModelResult = await UserModel.findByPk(id);
+    const UserModelResult = await UserModel.findByPk(id, { attributes: { exclude: ['password', 'token'] } });
 
     if (UserModelResult) {
       
@@ -55,7 +56,7 @@ const actualizar = async function (id, name, last_name, email, password, avatar,
   let usrExiste = null;
   try {
     if (id) {
-      usrExiste = await UserModel.findByPk(id);
+      usrExiste = await UserModel.findByPk(id, { attributes: { exclude: ['password', 'token'] } });
     }
 
     if (usrExiste) {
@@ -87,9 +88,77 @@ const eliminar = async function (id) {
   }
 };
 
+const login = async (data) => {
+  console.log("login de usuarios service");
+
+  try {
+  
+    //validar usuario
+    let userResult = await sequelize.query(
+      `SELECT id, name, token FROM users 
+        WHERE 1=1
+          AND deleted is FALSE
+          AND name = :n
+          AND password = :p LIMIT 1`, {
+        replacements: {
+          n: data.username,
+          p: data.password
+        }
+      }
+    );
+    
+    if(userResult[0] && userResult[0].length > 0){
+      
+      if(userResult[0][0].token && userResult[0][0].token !=''){
+      
+        return {
+          token: userResult[0][0].token
+        }
+      }else {
+        const payload = {
+          username: data.username,
+          id: userResult[0][0].id
+        }
+        
+        // generar token
+        var token = jwt.sign(payload, '12355448');
+
+        //guardar token
+        await UserModel.update( { token: token }, { where: { id: payload.id } });
+      }
+    }else{
+      throw new Error("Datos invalidos");
+    }
+
+    return {
+      token
+    }
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+const logout = async (usuarioID) => {
+
+  console.log("cerrar sesion service", usuarioID);
+
+  try {
+    
+    //borrar token
+    await UserModel.update( { token: null }, { where: { id: usuarioID } });
+    return;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
 module.exports = {
   listar,
   actualizar,
   eliminar,
-  consultarPorCodigo
+  consultarPorCodigo,
+  login,
+  logout
 };

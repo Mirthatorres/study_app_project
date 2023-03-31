@@ -7,6 +7,7 @@ app.use(bodyParser());
 const userRoute = require("./src/route/users/users.route");
 const themeRoute = require("./src/route/themes/themes.route");
 const topicRoute = require("./src/route/topics/topics.route");
+const themePropertyRoute = require("./src/route/themes.properties/themes.properties.route");
  
 //Ruta raiz
 app.get('/', function (req, res) {
@@ -25,5 +26,6 @@ app.get('/pagina2', function (req, res) {
 userRoute(app);
 themeRoute(app);
 topicRoute(app);
+themePropertyRoute(app);
 
 app.listen(3000);

@@ -93,9 +93,48 @@ const eliminar = async function (req, res) {
   }
 };
 
+const login = async (req, res) => {
+  console.log("log usuario");
+  try {
+    
+    const user = await UserService.login(req.body);
+
+    res.json({
+      success: true,
+      token: user.token
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({
+      success: false,
+      error: error.message,
+    });
+  }
+}
+
+const logout = async (req, res) => {
+  console.log("deslog usuario");
+  try {
+    
+    const user = await UserService.logout(req.usuarioID);
+
+    res.json({
+      success: true,
+      token: user.token
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({
+      success: false,
+      error: error.message,
+    });
+  }
+}
 module.exports = {
   listar,
   actualizar,
   eliminar,
-  consultarPorCodigo
+  consultarPorCodigo,
+  login,
+  logout
 };
