@@ -1,0 +1,521 @@
+{
+	"info": {
+		"_postman_id": "d90978ce-a2fd-4cff-8d4c-fed0543d3077",
+		"name": "STUDY_APP_PROJECT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11296269"
+	},
+	"item": [
+		{
+			"name": "users.login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Mirtha\",\r\n    \"password\": \"mirmir23\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"login"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users.logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik1pcnRoYSAiLCJsYXN0X25hbWUiOiJUb3JyZXMgRGlheiIsImVtYWlsIjoibWlydGhhQGdtYWlsLmNvbSIsImlhdCI6MTY4NDUyMDYwMn0.stPDGaLVNvSmXWxONl8WEHUU9UU8UkFpuK8OhUyWSXk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/users/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users.actualizar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"name\": \"Simon\",\r\n    \"last_name\": \"Torre\",\r\n    \"email\": \"simon@gmail.com\",\r\n    \"password\": \"sisimon\",\r\n    \"avatar\": null,\r\n    \"deleted\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users.listado",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1pcnRoYSIsImlkIjoxLCJpYXQiOjE2ODAyNzM5Nzh9.YE8_dgtdbbzT2i9waiEc_9mPwqIRKX35Dzj4qkrkDuI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/users/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"list"
+					],
+					"query": [
+						{
+							"key": "filtro",
+							"value": "n",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users.busquedaPorCodigo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1pcnRoYSIsImlkIjoxLCJpYXQiOjE2ODAyNzM5Nzh9.YE8_dgtdbbzT2i9waiEc_9mPwqIRKX35Dzj4qkrkDuI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/user/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"7"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "users.eliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/delete/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"delete",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "themes.properties.listado",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1pcnRoYSIsImlkIjoxLCJpYXQiOjE2ODAyNzM5Nzh9.YE8_dgtdbbzT2i9waiEc_9mPwqIRKX35Dzj4qkrkDuI",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/themes-properties/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"themes-properties",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "themes.properties.busquedaPorCodigo",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "themes.properties.consulta",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1pcnRoYSIsImlkIjoxLCJpYXQiOjE2ODAzMDI3MjV9.jccQhjKaBepI6KJWWsFZQntAR9SjncJA2n_qr7nRRUw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/themes-properties/consulta?filtro=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"themes-properties",
+						"consulta"
+					],
+					"query": [
+						{
+							"key": "filtro",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "themes.properties.actualizar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1pcnRoYSIsImlkIjoxLCJpYXQiOjE2ODAyNzM5Nzh9.YE8_dgtdbbzT2i9waiEc_9mPwqIRKX35Dzj4qkrkDuI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"theme_id\": 1,\r\n    \"property_name\": \"libro base\",\r\n    \"property_value\": \"Matematica Aplicada\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/themes-properties/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"themes-properties",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "themes.properties.eliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1pcnRoYSIsImlkIjoxLCJpYXQiOjE2ODAzMDI3MjV9.jccQhjKaBepI6KJWWsFZQntAR9SjncJA2n_qr7nRRUw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/themes-properties/delete/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"themes-properties",
+						"delete",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "themes.listado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/themes/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"themes",
+						"list"
+					],
+					"query": [
+						{
+							"key": "filtro",
+							"value": "Khe",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "themes.busquedaPorCodigo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/themes?id=4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"themes"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "themes.actualizar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Sistemas Operativos\",\r\n    \"description\": \"El tema contiene todas las unidades de sistemas operativos\",\r\n    \"create_date\": \"2023-03-18\",\r\n    \"keywords\": \"so, sistemas, unidades, windows, linux\",\r\n    \"owner_user_id\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/themes/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"themes",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "themes.eliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/themes/delete/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"themes",
+						"delete",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "topics.listado",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/topics/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"topics",
+						"list"
+					],
+					"query": [
+						{
+							"key": "filtro",
+							"value": "siguiente",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "topics.actualizar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Unidad Siete\",\r\n    \"order\": 1,\r\n    \"priority\": 2,\r\n    \"color\": \"rosa\",\r\n    \"create_date\": \"2023-03-18\",\r\n    \"owner_user_id\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/topics/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"topics",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "topics.busquedaPorCodigo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6Ik1pcnRoYSBFbGkiLCJsYXN0X25hbWUiOiJUb3JyZXMgRGlheiIsImVtYWlsIjoibWlydGhhQGdtYWlsLmNvbSIsImlhdCI6MTY4NDUzNjY5M30.k-lbA7pp5EALtBbt02kRWkW8YWlDQGt1_VHtXgW9Udw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/topic/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"topic",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "topics.eliminar",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/topics/delete/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"topics",
+						"delete",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
